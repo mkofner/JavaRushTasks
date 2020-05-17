@@ -48,26 +48,19 @@ public class Solution {
 
         private void printTime() throws InterruptedException {
             //add your code here - добавь код тут
+            Date date = new Date(2020,5,17,hours,minutes,++seconds);
+            Thread.sleep(1000);
+
+            hours = date.getHours();
+            minutes = date.getMinutes();
+            seconds = date.getSeconds();
+            
             if (hours == 0 && minutes == 0 && seconds == 0) {
                 System.out.println(String.format("В г. %s сейчас полночь!", cityName));
             } else {
                 System.out.println(String.format("В г. %s сейчас %d:%d:%d!", cityName, hours, minutes, seconds));
             }
-
-            seconds += 1;
-            if (seconds > 59) {
-                seconds = 0;
-                minutes += 1;
-            }
-            if (minutes > 59) {
-                minutes = 0;
-                hours += 1;
-            }
-            if (hours > 23) {
-                hours = 0;
-            }
-
-            Thread.sleep(1000);
+         
         }
     }
 }
